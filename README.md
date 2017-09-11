@@ -70,9 +70,9 @@ Dies fügt die Änderungen auf "experimental" dem master-Branch hinzu. Hier kann
 ## Online-Kollaboration mit github. 
 Hier ist es notwendig, dass ihr einen github.com-Account erstellt. Mit einem solchen Account könnt ihr ein neues "Repository" erstellen. Die Ordner, in denen .git-Ordner liegen (also solche wie `zahlenwandler`), nennt man auch *Repositorys*. Erstellen wir mit einem Klick ein neues Repository und stellen wir ein, dass es ein leeres sein soll. Nun würden wir gerne eine Online-Kopie unseres Repositories. Wir müssen github noch sagen, wo wir gerne unsere Online-Version hätten. Dies machen wir mit
 ```
-git remote add origin [URL]
+git remote add origin https://github.com/bschulengg/intro_to_git
 ```
-wobei [URL] die Internetadresse eines Online-Repositories ist. 
+wobei https://github.com/bschulengg/intro_to_git ein Beispiel für die Internetadresse eines Online-Repositories ist. Mit dieser konkreten wird es jedoch nicht funktionieren, da dieses nicht leer ist - es enthält das README.md in dem dieser Satz steht. 
 Nun drücken wir unsere Änderungen auf unser Repository:
 ```
 git push
@@ -125,5 +125,5 @@ gehen wir zur Version des Commits 9ccd1c313c5dd80d36c6d55eff341f7d7e27cce7.
 - Merge Deine Änderungen des Branchs erstprogrammieren in master. 
 
 ## Verweise
-+ (Git Cheat Sheet)[https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf]
-+ (TryGit-Tutorial)[https://try.github.io/levels/1/challenges/1]
++ [Git Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
++ [TryGit-Tutorial](https://try.github.io/levels/1/challenges/1)
