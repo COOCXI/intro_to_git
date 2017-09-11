@@ -1,9 +1,10 @@
 # Einführung in git und Github
 Für das Zusammenarbeiten an und das Weiterentwickeln Code ist es überaus wichtig, immer eine *stabile*, d.h. lauffähige Version des Codes online zu haben und zu vermeiden, dass lokale Änderungen globale *überschreiben*. Weiterhin ist es teilweise nicht abzusehen, wie ein bestimmter Zustand von Codespäter noch gebraucht werden kann: Es kann sein, dass wir als Nutzer zu bestimmten, *alten Versionen* von Dateien zurück möchten. 
 Hier sind drei Anforderungen an ein Protokoll, mit dem wir gerne zusammenarbeiten möchten: 
-1. Die Unterhaltung einer stabilen Softwareversion zu **jeder Zeit**
+1. Die Unterhaltung einer stabilen Softwareversion zu **jeder Zeit**.
 2. Das **sichere Einbringen** lokaler Änderungen in die stabile Softwareversion.
 3. Die Möglichkeit, ausgewählte alte Versionen von Dateien **zurückzubekommen**. 
+
 Zusammenarbeitstools wie GDrive scheitern auf mehrere Weisen an diesen drei Aufgaben. Wir schauen uns das Protokoll git und die Cloud-Plattform github an. Alternativen für das Protokoll sind mercurial und subversion, für die Cloud-Plattform sind gitlab und bitbucket Alternativen. Wir beginnen mit git, welches alle drei oben formulierten Anforderungen erfüllt - wenn man alleine arbeitet.
 ## git: Versionskontrolle offline
 Git ist ein Open-Source-Protokoll zur Speicherung von Versionen. Es ermöglicht, verschiedene Versionen von Software gleichzeitig zu speichern und sogar Software-Anteile, die sich gerade in Entwicklung befinden, gesondert zu speichern. 
@@ -32,7 +33,7 @@ namespace Zahlenwandler
 ```
 Da wir nun zufrieden sind und wir meinen, dass die Dateien in ihrem jetzigen Zustand erinnerungswürdig sind, speichern wir sie. Bevor wir für den Code eintreten, oder *commit*en, fügen wir erst die Dateien hinzu, die aktualisiert werden sollen, etwa
 ```
-git add main.cs
+git add Program.cs
 git add README.md
 ```
 Es werden nicht automatisch alle Änderungen an Dateien hinzugefügt, da es sein kann, dass bestimmte Änderungen inhaltlich zusammengehören andere nicht (dies können wir uns in einem größeren Projekt besser vorstellen). Schauen wir einmal nach, was bisher passiert ist
@@ -67,9 +68,14 @@ git merge experimental
 ```
 Dies fügt die Änderungen auf "experimental" dem master-Branch hinzu. Hier kann es zu einem sogenannten Merge-Conflict kommen: Wenn an beiden Branches an derselben Stelle Code weitergearbeitet wurde ist nicht klar, welche Änderungen behalten werden sollen. Dies zeigt der git-Client in den Dateien an. Diese Stellen müssen ausgeräumt werden, bevor der Merge zu Ende geführt werden kann. Wenn das aber klappt, ist ein neues Feature auf dem stabilen Branch und kann ausgeliefert, oder Englisch "deployed", werden. Dies ist alles, was in der Offline-Welt zu wissen ist, nun betreten wir Neuland: Das Internet. 
 ## Online-Kollaboration mit github. 
-Hier ist es notwendig, dass ihr einen github.com-Account erstellt. Mit einem solchen Account könnt ihr ein neues "Repository" erstellen. Die Ordner, in denen .git-Ordner liegen (also solche wie `zahlenwandler`), nennt man auch *Repositorys*. Erstellen wir mit einem Klick ein neues Repository und stellen wir ein, dass es ein leeres sein soll. Nun würden wir gerne eine Online-Kopie unseres Repositories. Nachdem wir alles obige gemacht haben, drücken wir unsere Änderungen auf unser Repository.
+Hier ist es notwendig, dass ihr einen github.com-Account erstellt. Mit einem solchen Account könnt ihr ein neues "Repository" erstellen. Die Ordner, in denen .git-Ordner liegen (also solche wie `zahlenwandler`), nennt man auch *Repositorys*. Erstellen wir mit einem Klick ein neues Repository und stellen wir ein, dass es ein leeres sein soll. Nun würden wir gerne eine Online-Kopie unseres Repositories. Wir müssen github noch sagen, wo wir gerne unsere Online-Version hätten. Dies machen wir mit
 ```
-git push -set-upstream [URL] master 
+git remote add origin [URL]
+```
+wobei [URL] die Internetadresse eines Online-Repositories ist. 
+Nun drücken wir unsere Änderungen auf unser Repository:
+```
+git push
 ```
 wobei URL die Webseite ist, die auf der Seite nach der Erstellung der Repositorys angezeigt wird. Nun können wir weiterhin `git add`, `git commit` und `git merge` benutzen und unsere Änderungen mit `git push` ins Internet bringen. Mit `git pull` werden die Änderungen aus dem Internet auf das eigene Repository übertragen.
 Ein klassischer Ablauf von Befehlen ist also 
